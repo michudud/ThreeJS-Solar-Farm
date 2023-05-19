@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
-import CanvasArea from "../CanvasArea/CanvasArea";
+import CanvasArea from "../CanvasArea";
 
 const App = () => {
   return (
