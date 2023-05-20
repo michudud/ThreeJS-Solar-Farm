@@ -1,3 +1,4 @@
+import SkyBox from "../SkyBox/SkyBox";
 import "./CanvasArea.css";
 import { Canvas } from "@react-three/fiber";
 
@@ -12,6 +13,7 @@ const CanvasArea = () => {
         }}
       >
         <ambientLight intensity={0.8} />
+        <SkyBox />
       </Canvas>
     </div>
   );
