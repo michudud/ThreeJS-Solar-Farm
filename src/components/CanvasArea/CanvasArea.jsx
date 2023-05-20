@@ -9,9 +9,11 @@ const CanvasArea = () => {
     <div className="CanvasArea">
       <Canvas
         camera={{
-          fov: 75,
+          fov: 45,
           near: 0.1,
           far: 20000,
+          position: [0, 10, 58],
+          rotation: [0.1, 0, 0],
         }}
       >
         <ambientLight intensity={0.8} />

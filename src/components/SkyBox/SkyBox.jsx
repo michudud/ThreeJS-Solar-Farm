@@ -11,9 +11,9 @@ const SkyBox = () => {
     bottomTexture,
   ]);
 
-  const skyBoxSize = 5;
+  const skyBoxSize = 100;
   return (
-    <mesh>
+    <mesh position={[0, 20, 0]}>
       <boxGeometry args={[skyBoxSize, skyBoxSize, skyBoxSize]} />
       <meshStandardMaterial attach="material-0" map={side} side={BackSide} />
       <meshStandardMaterial attach="material-1" map={side} side={BackSide} />

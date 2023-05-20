@@ -9,21 +9,21 @@ const Sun = () => {
 
   useFrame(() => {
     if (sunOrbitRef.current) {
-      sunOrbitRef.current.rotation.z += 0.005;
+      sunOrbitRef.current.rotation.z += 0.01;
     }
   });
 
   return (
     <>
-      <mesh position={[0, -1.1, 0]} ref={sunOrbitRef}>
-        <sphereGeometry args={[0.02, 1, 1]} />
-        <mesh position={[0, 2, 0]}>
-          <sphereGeometry args={[0.2, 20, 20]} />
-          <meshBasicMaterial color="#ffeda6" />
-          <sprite scale={[1, 1, 1]}>
+      <mesh position={[0, -10, 0]} ref={sunOrbitRef}>
+        <sphereGeometry args={[0.01, 1, 1]} />
+        <mesh position={[0, 45, 0]}>
+          <sphereGeometry args={[2, 20, 20]} />
+          <meshBasicMaterial color="#f3f58c" blending={AdditiveBlending} />
+          <sprite scale={[15, 15, 15]}>
             <spriteMaterial
               map={glow}
-              color="#ffeda6"
+              color="#f3f58c"
               transparent="false"
               blending={AdditiveBlending}
             />
