@@ -2,6 +2,7 @@ import "./CanvasArea.css";
 import { Canvas } from "@react-three/fiber";
 import SkyBox from "../SkyBox";
 import Map from "../Map";
+import Sun from "../Sun";
 
 const CanvasArea = () => {
   return (
@@ -16,6 +17,7 @@ const CanvasArea = () => {
         <ambientLight intensity={0.8} />
         <SkyBox />
         <Map />
+        <Sun />
       </Canvas>
     </div>
   );
