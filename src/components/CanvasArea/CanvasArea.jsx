@@ -16,7 +16,7 @@ const CanvasArea = () => {
           rotation: [0.1, 0, 0],
         }}
       >
-        <ambientLight intensity={0.8} />
+        <ambientLight intensity={1} name="ambient_light" />
         <SkyBox />
         <Map />
         <Sun />
