@@ -27,7 +27,7 @@ const Sun = () => {
 
   return (
     <>
-      <mesh position={[0, -10, 0]} ref={sunOrbitRef}>
+      <mesh position={[0, -10, 0]} ref={sunOrbitRef} name="sun_orbit">
         <sphereGeometry args={[0.01, 1, 1]} />
         <mesh position={[45, 0, 0]} name="sun">
           <sphereGeometry args={[2, 20, 20]} />

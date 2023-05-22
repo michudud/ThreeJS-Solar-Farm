@@ -8,10 +8,8 @@ const SolarFarm = () => {
   let target = new THREE.Vector3();
 
   useFrame((status) => {
-    status.scene.getObjectByName("sun").getWorldPosition(target);
-    solarPanel.scene.getObjectByName("panel").lookAt(target);
-    solarPanel.scene.getObjectByName("panel").rotation.x += Math.PI / 2;
-    console.log(solarPanel.scene.getObjectByName("panel").rotation.x);
+    solarPanel.scene.getObjectByName("panel").rotation.x =
+      -status.scene.getObjectByName("sun_orbit").rotation.z + Math.PI / 2;
   });
 
   return (
