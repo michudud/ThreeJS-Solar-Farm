@@ -12,7 +12,7 @@ const Sun = () => {
       let currRotation = sunOrbitRef.current.rotation.z;
       let ambLight = status.scene.getObjectByName("ambient_light");
 
-      sunOrbitRef.current.rotation.z += 0.01;
+      sunOrbitRef.current.rotation.z += 0.005;
       if (Math.floor((currRotation / Math.PI) % 2) === 0) {
         if (Math.floor((currRotation / (Math.PI / 2)) % 2) === 0) {
           ambLight.intensity =
@@ -29,7 +29,7 @@ const Sun = () => {
     <>
       <mesh position={[0, -10, 0]} ref={sunOrbitRef}>
         <sphereGeometry args={[0.01, 1, 1]} />
-        <mesh position={[45, 0, 0]}>
+        <mesh position={[45, 0, 0]} name="sun">
           <sphereGeometry args={[2, 20, 20]} />
           <meshBasicMaterial color="#f3f58c" blending={AdditiveBlending} />
           <sprite scale={[15, 15, 15]}>

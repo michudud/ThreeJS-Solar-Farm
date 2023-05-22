@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import SkyBox from "../SkyBox";
 import Map from "../Map";
 import Sun from "../Sun";
+import SolarFarm from "../SolarFarm/SolarFarm";
 
 const CanvasArea = () => {
   return (
@@ -12,14 +13,15 @@ const CanvasArea = () => {
           fov: 45,
           near: 0.1,
           far: 20000,
-          position: [0, 10, 58],
-          rotation: [0.1, 0, 0],
+          position: [0, 40, 80],
+          rotation: [-0.4, 0, 0],
         }}
       >
         <ambientLight intensity={1} name="ambient_light" />
         <SkyBox />
         <Map />
         <Sun />
+        <SolarFarm />
       </Canvas>
     </div>
   );
