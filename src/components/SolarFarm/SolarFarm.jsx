@@ -7,12 +7,17 @@ const SolarFarm = () => {
 
   useFrame((status) => {
     const sunRotation = status.scene.getObjectByName("sun_orbit").rotation.z;
-    if (Math.floor((sunRotation / Math.PI) % 2) === 0) {
-      let currAngle = ((sunRotation % Math.PI) / Math.PI) * 180;
+    const currSunAngle = ((sunRotation % Math.PI) / Math.PI) * 180;
 
-      if (currAngle > 40 && currAngle < 140) {
+    if (Math.floor((sunRotation / Math.PI) % 2) === 0) {
+      if (currSunAngle > 45 && currSunAngle < 135) {
         solarPanel.scene.getObjectByName("panel").rotation.x =
           -sunRotation + Math.PI / 2;
+      }
+    } else {
+      if (currSunAngle > 45 && currSunAngle < 135) {
+        solarPanel.scene.getObjectByName("panel").rotation.x =
+          sunRotation + Math.PI / 2;
       }
     }
   });
