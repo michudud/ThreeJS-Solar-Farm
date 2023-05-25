@@ -4,6 +4,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const SolarFarm = () => {
   const solarPanel = useLoader(GLTFLoader, solarPanelModel);
+  solarPanel.scene.getObjectByName("panel").rotation.x = Math.PI / 4;
 
   useFrame((status) => {
     const sunRotation = status.scene.getObjectByName("sun_orbit").rotation.z;
