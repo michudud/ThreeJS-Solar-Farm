@@ -10,7 +10,7 @@ const Map = () => {
   surfaceTexture.repeat.set(6, 6);
 
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow={true}>
       <circleGeometry args={[40, 60]} />
       <meshStandardMaterial map={surfaceTexture} />
     </mesh>

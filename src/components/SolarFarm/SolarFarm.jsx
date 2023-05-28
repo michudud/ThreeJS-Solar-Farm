@@ -6,6 +6,12 @@ const SolarFarm = () => {
   const solarPanel = useLoader(GLTFLoader, solarPanelModel);
   solarPanel.scene.getObjectByName("panel").rotation.x = Math.PI / 4;
 
+  solarPanel.scene.traverse((node) => {
+    if (node.isMesh) {
+      node.castShadow = true;
+    }
+  });
+
   let allSolarPanels = [];
 
   for (let i = 0; i < 16; i++) {
