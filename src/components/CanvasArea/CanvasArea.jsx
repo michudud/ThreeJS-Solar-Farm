@@ -4,6 +4,7 @@ import SkyBox from "../SkyBox";
 import Map from "../Map";
 import Sun from "../Sun";
 import SolarFarm from "../SolarFarm/SolarFarm";
+import { CameraController } from "./CameraController";
 
 const CanvasArea = () => {
   return (
@@ -18,6 +19,7 @@ const CanvasArea = () => {
           rotation: [-0.4, 0, 0],
         }}
       >
+        <CameraController />
         <ambientLight intensity={0.2} name="ambient_light" />
         <SkyBox />
         <Map />
