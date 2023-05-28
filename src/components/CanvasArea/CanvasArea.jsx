@@ -14,7 +14,7 @@ const CanvasArea = () => {
           fov: 45,
           near: 0.1,
           far: 20000,
-          position: [0, 40, 80],
+          position: [0, 50, 90],
           rotation: [-0.4, 0, 0],
         }}
       >

@@ -12,11 +12,26 @@ const SolarFarm = () => {
     }
   });
 
-  let allSolarPanels = [];
+  let firstCircle = [];
+  let secoundCircle = [];
+  let thirdCircle = [];
+  let allSolarPanels = [firstCircle, secoundCircle, thirdCircle];
 
-  for (let i = 0; i < 16; i++) {
-    allSolarPanels.push(solarPanel.scene.clone());
+  let firstCircleSize = 12;
+  let secoundCircleSize = 20;
+  let thirdCircleSize = 28;
+
+  for (let i = 0; i < firstCircleSize; i++) {
+    firstCircle.push(solarPanel.scene.clone());
   }
+  for (let i = 0; i < secoundCircleSize; i++) {
+    secoundCircle.push(solarPanel.scene.clone());
+  }
+  for (let i = 0; i < thirdCircleSize; i++) {
+    thirdCircle.push(solarPanel.scene.clone());
+  }
+
+  console.log(allSolarPanels);
 
   useFrame((status) => {
     const sunRotation = status.scene.getObjectByName("sun_orbit").rotation.z;
@@ -24,15 +39,20 @@ const SolarFarm = () => {
 
     if (Math.floor((sunRotation / Math.PI) % 2) === 0) {
       if (currSunAngle > 45 && currSunAngle < 135) {
-        allSolarPanels.map((panel) => {
-          panel.getObjectByName("panel").rotation.x =
-            -sunRotation + Math.PI / 2;
+        allSolarPanels.map((circle) => {
+          circle.map((panel) => {
+            panel.getObjectByName("panel").rotation.x =
+              -sunRotation + Math.PI / 2;
+          });
         });
       }
     } else {
       if (currSunAngle > 45 && currSunAngle < 135) {
-        allSolarPanels.map((panel) => {
-          panel.getObjectByName("panel").rotation.x = sunRotation + Math.PI / 2;
+        allSolarPanels.map((circle) => {
+          circle.map((panel) => {
+            panel.getObjectByName("panel").rotation.x =
+              sunRotation + Math.PI / 2;
+          });
         });
       }
     }
@@ -40,20 +60,24 @@ const SolarFarm = () => {
 
   return (
     <group>
-      {allSolarPanels.map((panel, index) => {
-        return (
-          <primitive
-            key={index}
-            object={panel}
-            scale={0.8}
-            rotation={[0, Math.PI / 2, 0]}
-            position={[
-              Math.sin(((Math.PI * 2) / allSolarPanels.length) * index) * 20,
-              0,
-              Math.cos(((Math.PI * 2) / allSolarPanels.length) * index) * 20,
-            ]}
-          />
-        );
+      {allSolarPanels.map((circle, circleIndex) => {
+        return circle.map((panel, index) => {
+          return (
+            <primitive
+              key={index}
+              object={panel}
+              scale={0.8}
+              rotation={[0, Math.PI / 2, 0]}
+              position={[
+                Math.sin(((Math.PI * 2) / circle.length) * index) *
+                  (10 + circleIndex * 8),
+                0,
+                Math.cos(((Math.PI * 2) / circle.length) * index) *
+                  (10 + circleIndex * 8),
+              ]}
+            />
+          );
+        });
       })}
     </group>
   );
