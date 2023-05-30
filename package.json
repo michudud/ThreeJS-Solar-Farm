@@ -6,8 +6,6 @@
   "main": "index.js",
   "scripts": {
     "start": "vite",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "vite build",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
@@ -24,7 +22,6 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.1",
-    "gh-pages": "^5.0.0",
     "prettier": "^2.8.3",
     "process": "^0.11.10",
     "vite": "^4.2.2"
